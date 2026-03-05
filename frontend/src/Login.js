@@ -42,7 +42,7 @@ const Login = () => {
     setError('');
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/login', { username, password });
+      const response = await axios.post('https://omnitaas-login-app-7ovb.vercel.app/login', { username, password });
       if (response.status === 200) {
         localStorage.setItem('username', username);
         if (rememberMe) {
