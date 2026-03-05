@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes successPop {
+  0%   { transform: scale(0.6) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.12) rotate(3deg);  opacity: 1; }
+  100% { transform: scale(1) rotate(0deg);     opacity: 1; }
+}
+
+@keyframes lineExpand {
+  from { width: 0; }
+  to   { width: 48px; }
+}
+
+/* ── Layout ── */
+.welcome-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0c0f 0%, #111620 40%, #0d1119 70%, #0a0c0f 100%);
+}
+
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  top: 15%; right: 10%;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ── Card ── */
+.welcome-card {
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(160deg, rgba(30,35,45,0.92) 0%, rgba(18,22,30,0.97) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(212,175,55,0.14);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04) inset;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  padding: 56px 48px 52px;
+  animation: fadeSlideUp 0.45s cubic-bezier(.22,.68,0,1.2) forwards;
+}
+
+.welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.8), rgba(212,175,55,0.4), transparent);
+}
+
+/* ── Avatar ── */
+.welcome-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.08) 100%);
+  border: 2px solid rgba(212,175,55,0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 32px rgba(212,175,55,0.15);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #d4af37;
+  animation: successPop 0.55s cubic-bezier(.22,.68,0,1.2) forwards;
+}
+
+/* ── Text ── */
+.welcome-card .subtitle {
+  font-size: 13.5px;
+  color: rgba(200,195,185,0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.welcome-card h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #e8e0d0;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.welcome-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: #d4af37;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.divider {
+  width: 48px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent);
+  margin: 0 auto 24px;
+  animation: lineExpand 0.8s 0.3s ease both;
+}
+
+.welcome-card p {
+  font-size: 14.5px;
+  color: rgba(200,195,185,0.45);
+  font-weight: 300;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+/* ── Stats Row ── */
+.stats-row {
+  display: flex;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 32px;
+}
+
+.stat-item {
+  flex: 1;
+  padding: 14px 0;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: rgba(200,195,185,0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 14px;
+  color: #d4af37;
+  font-weight: 500;
+}
+
+/* ── Logout Button ── */
+.logout-btn {
+  padding: 13px 32px;
+  background: transparent;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 10px;
+  color: rgba(212,175,55,0.7);
+  font-size: 13.5px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.22s;
+}
+
+.logout-btn:hover {
+  background: rgba(212,175,55,0.08);
+  border-color: rgba(212,175,55,0.55);
+  color: #d4af37;
+  transform: translateY(-1px);
+}
